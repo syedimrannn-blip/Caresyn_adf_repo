@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "carseSunc-ADF"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://CareSync-keyvault11.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "caresynclearn.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "free-sql-db-0315378"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "adminim"
+		},
+		"LS_ADLS_properties_typeProperties_url": {
+			"value": "https://storageaccountcaresync.dfs.core.windows.net/"
+		},
+		"PostgreSql1_properties_typeProperties_server": {
+			"value": "ep-patient-wave-b5f7r5g3-pooler.c-7.us-east-2.aws.neon.tech"
+		},
+		"PostgreSql1_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"PostgreSql1_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
