@@ -335,7 +335,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "SELECT * from ctrl.table_config Where table_id =1",
+									"value": "SELECT * from ctrl.table_config Where table_id =2",
 									"type": "Expression"
 								},
 								"queryTimeout": "02:00:00",
@@ -414,7 +414,10 @@
 								"type": "DatasetReference",
 								"parameters": {
 									"container": "landing",
-									"folder": "raw"
+									"folder": {
+										"value": "@concat(\nactivity('Lookup1').output.firstRow.source_system,\n'/',\nactivity('Lookup1').output.firstRow.source_table_name,\n'/',\nvariables('time_now')\n)",
+										"type": "Expression"
+									}
 								}
 							}
 						]
