@@ -35,7 +35,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT * from ctrl.table_config Where table_id =  @{pipeline().parameters.table_id}",
+							"value": "SELECT * from ctrl.table_config Where table_id =  1",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -81,21 +81,43 @@
 						},
 						"queryTimeout": "02:00:00"
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
 						"referenceName": "DS_PostgreSqlTable1",
 						"type": "DatasetReference"
 					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ADLS_par",
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "Landing",
+							"folder": "raw"
+						}
+					}
 				]
 			}
 		],
-		"parameters": {
-			"table_id": {
-				"type": "string"
-			}
-		},
 		"variables": {
 			"time_now": {
 				"type": "String"
