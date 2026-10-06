@@ -335,7 +335,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "SELECT * from ctrl.table_config Where table_id =  1",
+									"value": "SELECT * from ctrl.table_config Where table_id =1",
 									"type": "Expression"
 								},
 								"queryTimeout": "02:00:00",
@@ -377,7 +377,7 @@
 							"source": {
 								"type": "PostgreSqlV2Source",
 								"query": {
-									"value": "@SELECT * FROM PUBLIC.activity('Lookup1').output.firstRow.source_table_name}",
+									"value": "SELECT * FROM PUBLIC.@{activity('Lookup1').output.firstRow.source_table_name}",
 									"type": "Expression"
 								},
 								"queryTimeout": "02:00:00"
@@ -413,7 +413,7 @@
 								"referenceName": "DS_ADLS_par",
 								"type": "DatasetReference",
 								"parameters": {
-									"container": "Landing",
+									"container": "landing",
 									"folder": "raw"
 								}
 							}
