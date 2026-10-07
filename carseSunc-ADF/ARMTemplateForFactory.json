@@ -178,7 +178,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "SELECT * from ctrl.table_config Where table_id =2",
+									"value": "SELECT * from ctrl.table_config Where table_id =@{pipeline().parameters.table_id}",
 									"type": "Expression"
 								},
 								"queryTimeout": "02:00:00",
@@ -268,6 +268,12 @@
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"table_id": {
+						"type": "string",
+						"defaultValue": "1"
+					}
 				},
 				"variables": {
 					"time_now": {
